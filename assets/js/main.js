@@ -256,56 +256,48 @@
 })()
 
 // download cv
-// download cv
 document.addEventListener("DOMContentLoaded", function () {
   // File path or URL
   var filePath = "./assets/cv/Qurbani Amrakhov CV.pdf";
 
-  // Open File Button
-  document.getElementById("openFileBtn").addEventListener("click", function () {
-      window.open(filePath, "_blank");
-  });
-
   // Download File Button
   document.getElementById("downloadFileBtn").addEventListener("click", function () {
-      fetch(filePath)
-          .then(response => response.blob())
-          .then(blob => {
-              var link = document.createElement("a");
-              link.href = window.URL.createObjectURL(blob);
-              link.download = "Qurbani_Amrakhov_CV.pdf"; // Set the desired file name
-              link.click();
-          });
+    var link = document.createElement("a");
+    link.href = filePath;
+    link.download = "./assets/cv/Qurbani Amrakhov CV.pdf"; // Set the desired file name
+
+    // Trigger the click event to start the download
+    link.click();
   });
 });
 
 // download cv
 
 // cv visibility
-// Select the '#cv-buttons' element
+
 let buttons = document.querySelector('#cv-buttons');
 
-// Hide the 'cv-buttons' element by default
+
 buttons.classList.add('hide');
 
-// Store the initial scroll position
+
 let lastScrollPosition = 0;
 
-// Add an event listener to handle scroll events and update the visibility of 'cv-buttons'
+
 window.addEventListener('scroll', function () {
-  // Get the current scroll position
+
   let currentScrollPosition = window.scrollY;
 
-  // Check if scrolling up (current position is less than the last position)
+
   if (currentScrollPosition < lastScrollPosition) {
-    // Remove the 'hide' class to show the 'cv-buttons' element
+   
     buttons.classList.remove('hide');
   } else {
-    // If scrolling down or not moving, add the 'hide' class
+ 
     buttons.classList.add('hide');
   }
 
-  // Update the last scroll position
+ 
   lastScrollPosition = currentScrollPosition;
 });
 
